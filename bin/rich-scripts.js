@@ -4,10 +4,10 @@ var path = require('path')
 var slash = require('slash')
 
 var dirname = slash(path.resolve(__dirname))
-var isFfanScript = (dirname.indexOf("/node_modules/ffan-scripts") !== -1)
+var isFfanScript = (dirname.indexOf("/node_modules/rich-scripts") !== -1)
 
 require('babel-register')({
-  only: isFfanScript  ? /ffan-scripts/ : undefined
+  only: isFfanScript  ? /rich-scripts/ : undefined
 })
 require('babel-polyfill')
 

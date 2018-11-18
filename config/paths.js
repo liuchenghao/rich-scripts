@@ -25,8 +25,8 @@ function resolveOwn(relativePath) {
  * - real: wit120-source
  */
 
-export const isInFfanScripts = process.cwd().indexOf(path.join('ffan-fe-cli', 'packages', 'ffan-scripts')) !== -1
-export const isInRealLink = __dirname.indexOf(path.join('node_modules', 'ffan-scripts/')) !== -1
+export const isInFfanScripts = process.cwd().indexOf(path.join('ffan-fe-cli', 'packages', 'rich-scripts')) !== -1
+export const isInRealLink = __dirname.indexOf(path.join('node_modules', 'rich-scripts/')) !== -1
 
 export default {
   appSrc          : isInFfanScripts ? resolveApp('commons/boilerplate') : resolveApp('src'),
