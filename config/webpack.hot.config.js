@@ -5,7 +5,7 @@ import paths from './paths'
 import * as config from './webpack.common.config'
 import WatchMissingNodeModulesPlugin from './WatchMissingNodeModulesPlugin'
 
-export default function getConfig({name, fileName, relativePath, html = {}, px2rem = {}, framework = 'jquery', isCDN = 'no', vue = {}}) {
+export default function getConfig({name, fileName, relativePath, html = {}, px2rem = {}, framework = 'jquery', isCDN = 'no', vue = {}, env = {}}) {
   // px2rem
   const px2remConfig = {
     remUnit     : 75,
@@ -37,6 +37,9 @@ export default function getConfig({name, fileName, relativePath, html = {}, px2r
     },
     vue      : config.vueConfig,
     plugins  : [
+      new webpack.DefinePlugin({
+        'process.env': env
+      }),
       new HtmlWebpackPlugin({
         filename: `${name}.html`,
         ...html,

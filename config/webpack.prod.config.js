@@ -5,7 +5,7 @@ import paths from './paths'
 import * as config from './webpack.common.config'
 import { getPack } from './package'
 
-export default function getConfig({name, fileName, relativePath, html = {}, px2rem = {}, framework = 'jquery', isCDN = 'no'}) {
+export default function getConfig({name, fileName, relativePath, html = {}, px2rem = {}, framework = 'jquery', isCDN = 'no', env = {}}) {
   const pack = getPack()
   // const localPublicPath = paths.resolve('/fe', pack['namespace'], pack['name'])
   // TODO update relative path
@@ -42,6 +42,9 @@ export default function getConfig({name, fileName, relativePath, html = {}, px2r
     },
     vue      : config.vueConfig,
     plugins  : [
+      new webpack.DefinePlugin({
+        'process.env': env
+      }),
       new HtmlWebpackPlugin({
         filename: `${name}.html`,
         ...html,

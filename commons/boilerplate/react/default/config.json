@@ -7,5 +7,8 @@
   "html": {
     "title": "Sample Title",
     "track": "SAMPLE_TRACK"
+  },
+  "env": {
+    "mock": true
   }
 }
